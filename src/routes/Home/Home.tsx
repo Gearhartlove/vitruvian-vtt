@@ -1,7 +1,7 @@
 import { Entity } from "../../types/gen/Entity"
 import CharacterPortrait from "../../components/ChracterPortrait"
 
-const exampleEntities : Entity[] = [
+const exampleEntities: Entity[] = [
   {
     Name: "John Doe",
     Damage: "D12"
@@ -40,12 +40,19 @@ const exampleEntities : Entity[] = [
   }
 ]
 
+const navigateToCharacterBuilder = () => {
+  console.log("Navigating to character builder")
+  window.location.href = "/character-builder/start"
+}
+
 const Home = () => {
   return (
     <div className="py-10">
       <div className="flex flex-col gap-6 justify-center items-center px-56">
-        <CharacterPortrait image={{image : "test_character.png", x_offset: -90}} icon="moon"/>
-        <CharacterPortrait/>
+        <button
+          onClick={navigateToCharacterBuilder}
+          style={{ border: "2px solid white" }}>
+            Create a character</button>
       </div>
     </div>
   )

@@ -8,8 +8,8 @@ use spinoff::{spinners, Color, Spinner};
 
 use super::{Ingest, Named, RolePlayingGame};
 
-mod ancestry;
-mod classes;
+pub mod ancestry;
+pub mod classes;
 mod core;
 
 /// The P2FE world of data.

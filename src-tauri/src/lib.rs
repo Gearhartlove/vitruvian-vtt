@@ -1,4 +1,4 @@
-use commands::themes;
+use commands::{pf2e, themes};
 use serde_json::Value;
 use vitruvian_types::prelude::*;
 
@@ -42,6 +42,7 @@ pub fn run() {
             themes::get_theme,
             themes::get_available_themes,
             themes::set_current_theme,
+            pf2e::ancestries::get_ancestries
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
