@@ -78,13 +78,13 @@ fn main() -> Result<()> {
             // strings
             .col(ColumnDef::new(Ancestry::Name).string().not_null())
             .col(ColumnDef::new(Ancestry::Description).string().not_null())
-            // .col(ColumnDef::new(Ancestry::ImagePath).string().not_null())
-            // .col(ColumnDef::new(Ancestry::Vision).string().not_null())
+            .col(ColumnDef::new(Ancestry::ImagePath).string().not_null())
+            .col(ColumnDef::new(Ancestry::Vision).string().not_null())
+            .col(ColumnDef::new(Ancestry::Size).integer().not_null())
             // // ints
-            // .col(ColumnDef::new(Ancestry::Hp).integer().not_null())
-            // .col(ColumnDef::new(Ancestry::Reach).integer().not_null())
-            // .col(ColumnDef::new(Ancestry::Size).integer().not_null())
-            // .col(ColumnDef::new(Ancestry::Speed).integer().not_null())
+            .col(ColumnDef::new(Ancestry::Hp).integer().not_null())
+            .col(ColumnDef::new(Ancestry::Reach).integer().not_null())
+            .col(ColumnDef::new(Ancestry::Speed).integer().not_null())
             // // blobs
             // .col(ColumnDef::new(Ancestry::Languages).json().not_null())
             // .col(
@@ -150,12 +150,12 @@ fn main() -> Result<()> {
         .columns([
             Ancestry::Name,
             Ancestry::Description,
-            // Ancestry::ImagePath,
-            // Ancestry::Vision,
-            // Ancestry::Hp,
-            // Ancestry::Reach,
-            // Ancestry::Size,
-            // Ancestry::Speed,
+            Ancestry::ImagePath,
+            Ancestry::Vision,
+            Ancestry::Size,
+            Ancestry::Hp,
+            Ancestry::Reach,
+            Ancestry::Speed,
             // Ancestry::Languages,
             // Ancestry::AdditionalLanguages,
             // Ancestry::Boosts,
@@ -178,13 +178,13 @@ fn main() -> Result<()> {
         .columns([
             Ancestry::Id,
             Ancestry::Name,
-            // Ancestry::Description,
-            // Ancestry::ImagePath,
-            // Ancestry::Vision,
-            // Ancestry::Hp,
-            // Ancestry::Reach,
-            // Ancestry::Size,
-            // Ancestry::Speed,
+            Ancestry::Description,
+            Ancestry::ImagePath,
+            Ancestry::Vision,
+            Ancestry::Size,
+            Ancestry::Hp,
+            Ancestry::Reach,
+            Ancestry::Speed,
             // Ancestry::Languages,
             // Ancestry::AdditionalLanguages,
             // Ancestry::Boosts,
@@ -254,12 +254,12 @@ enum Ancestry {
     Id,
     Name,
     Description,
-    // ImagePath,
-    // Vision,
-    // Size,
-    // Hp,
-    // Reach,
-    // Speed,
+    ImagePath,
+    Vision,
+    Size,
+    Hp,
+    Reach,
+    Speed,
     // Languages,
     // AdditionalLanguages,
     // Boosts,
@@ -281,13 +281,13 @@ enum Publication {
 struct AncestryStruct {
     id: i64,
     name: String,
-    // description: String,
-    // image_path: String,
-    // size: String,
-    // vision: String,
-    // hp: i16,
-    // reach: i8,
-    // speed: i8,
+    description: String,
+    image_path: String,
+    vision: String,
+    size: String,
+    hp: i16,
+    reach: i8,
+    speed: i8,
     // languages: Languages,
     // additional_languages: AdditionalLanguages,
 
@@ -298,6 +298,13 @@ impl From<&Row<'_>> for AncestryStruct {
         AncestryStruct {
             id: row.get_unwrap("id"),
             name: row.get_unwrap("name"),
+            description: row.get_unwrap("description"),
+            image_path: row.get_unwrap("image_path"),
+            vision: row.get_unwrap("vision"),
+            size: row.get_unwrap("size"),
+            hp: row.get_unwrap("hp"),
+            reach: row.get_unwrap("reach"),
+            speed: row.get_unwrap("speed")
         }
     }
 }

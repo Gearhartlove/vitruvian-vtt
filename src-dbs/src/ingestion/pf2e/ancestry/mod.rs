@@ -70,12 +70,12 @@ impl Schema for Ancestry {
         vec![
             self.name.clone().into(),                      // Name, string
             self.system.description.value.clone().into(),  // Description, string
-            // self.img.clone().into(),                       // ImagePath, string
-            // self.system.vision.to_string().clone().into(), // Vision, string
-            // self.system.size.to_string().clone().into(),   // Size, string
-            // self.system.hp.clone().into(),                 // Hp, integer
-            // self.system.reach.clone().into(),              // Reach, integer
-            // self.system.speed.clone().into(),              // Speed, integer
+            self.img.clone().into(),                       // ImagePath, string
+            self.system.vision.to_string().clone().into(), // Vision, string
+            self.system.size.to_string().clone().into(),   // Size, string
+            self.system.hp.clone().into(),                 // Hp, integer
+            self.system.reach.clone().into(),              // Reach, integer
+            self.system.speed.clone().into(),              // Speed, integer
             // serde_json::to_string(&self.system.languages)  // Languages, blob
             //     .unwrap()
             //     .into(),
