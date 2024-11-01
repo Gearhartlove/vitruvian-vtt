@@ -13,3 +13,18 @@ pub enum SizeKind {
     Huge,
     Gargantuan,
 }
+
+impl SizeKind {
+
+    pub fn to_string(&self) -> String {
+        match self {
+            SizeKind::Tiny => "tiny".into(),
+            SizeKind::Small => "small".into(),
+            SizeKind::Medium => "medium".into(),
+            SizeKind::Large => "large".into(),
+            SizeKind::Huge => "huge".into(),
+            SizeKind::Gargantuan => "gargantuan".into(),
+        }
+    }
+}
+

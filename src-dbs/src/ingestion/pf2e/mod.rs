@@ -49,7 +49,7 @@ impl RolePlayingGame for Pf2eWorld {
             println!("Cloning pf2e repository...");
             println!("(This may take 5-10 minutes)");
             let mut spinner = Spinner::new(spinners::Dots, "Loading...", Color::Blue);
-            let repo_url = "https://github.com/foundryvtt/pf2e.git";
+            let repo_url = "https://github.com/two-shots-later/pf2e.git";
             match Repository::clone(repo_url, Self::path()) {
                 Ok(_) => (),
                 Err(e) => panic!("Failed to clone repository: {}", e),
@@ -64,7 +64,7 @@ impl Ingest for Pf2eWorld {
 
     fn path() -> PathBuf {
         let current_directory = env::current_dir().expect("Could not get current directory");
-        current_directory.join("data/pf2e")
+        current_directory.join("sources/pf2e")
     }
 }
 

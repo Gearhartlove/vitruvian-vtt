@@ -3,6 +3,7 @@ use std::{
     path::PathBuf,
 };
 
+use sea_query::SimpleExpr;
 use serde::{de::DeserializeOwned, Serialize};
 
 pub mod pf2e;
@@ -49,4 +50,8 @@ pub trait RolePlayingGame {
 /// Used in ingestion to note what is ingesting
 pub trait Named {
     fn name() -> String;
+}
+
+pub trait Schema {
+    fn values(&self) -> Vec<sea_query::SimpleExpr>;
 }
